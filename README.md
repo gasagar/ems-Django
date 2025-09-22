@@ -1,14 +1,21 @@
-# Employee Management System - Django(Python)
+# Employee Management System - Django
 
-Employee Management System built in a Python Framework Django and PostgreSQL as Database. This webapp include the functionality like...
+A web-based Employee Management System built using Django. This project demonstrates a complete CRUD (Create, Read, Update, Delete) functionality with a user-friendly interface for managing employee data. 
 
-1. Login / Registration (Admin, Employee)
-2. Add / Manage Employee (Admin)
-3. Publish / Manage Notice (Admin)
-4. Add / Manage Attendance (Admin)
-5. Assign / Manage Work (Employee)
-6. Send Request (Employee)
-7. View Request, Notice, Works etc...
+## Features
+
+- Add, view, update, and delete employee records
+- Organized project structure following Django best practices
+- Responsive templates and clean UI
+- Easy to extend and customize for other management purposes
+
+## Tech Stack
+
+- **Backend:** Django  
+- **Database:** SQLite (default Django DB, can be switched to PostgreSQL/MySQL)  
+- **Frontend:** HTML, CSS, Bootstrap  
+- **Version Control:** Git & GitHub  
+
 
 ## How to Use this Project?
 ***
@@ -39,27 +46,6 @@ Employee Management System built in a Python Framework Django and PostgreSQL as 
     ```python
     python manage.py runserver
     ```
-- Hola, It's running !!
 
-## Screenshots
 
-Login
-![Login](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Login.png "Login")
-
-Dashboard
-![Dashboard](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Dashboard.png?raw=true "Dashboard")
-
-Assign Work
-![Assign Work](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Assign%20Work.png?raw=true "Assign Work")
-
-Notice
-![Notice](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Notice.png?raw=true "Notice")
-
-Admin (Manage Employee)
-![Admin (Manage Employee)](https://github.com/omjogani/employee-management-django/blob/master/screenshots/Admin%20Employee.png?raw=true "Admin (Manage Employee)")
-
-### Check out more Screenshots in Screenshot Folder...
-
->If you found this useful, make sure to give it a star 🌟
-
-## Thank You!!
+## Thank You
