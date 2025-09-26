@@ -5,11 +5,12 @@ name = "pypi"
 
 [packages]
 pillow = "*"
-django = "*"
 psycopg2 = "*"
 djangocms-admin-style = "*"
+django = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.11"
