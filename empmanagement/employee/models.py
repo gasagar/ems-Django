@@ -1,8 +1,3 @@
-from pyexpat import model
-from django.db import models
-
-from pickle import TRUE
-from turtle import title
 from django.db import models
 
 
