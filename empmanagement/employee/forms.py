@@ -32,5 +32,6 @@ class makeRequestForm(forms.ModelForm):
             "requesterId",
             "requestMessage",
             "requestDate",
+            "requestStatus",
             "destinationEmployeeId",
         ]

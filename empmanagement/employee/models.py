@@ -78,4 +78,5 @@ class Requests(models.Model):
     requesterId = models.ForeignKey(Employee,on_delete=models.CASCADE,related_name="requesterId")
     requestMessage = models.TextField()
     requestDate = models.DateTimeField()
+    requestStatus= models.TextField(default="Pending")
     destinationEmployeeId = models.ForeignKey(Employee,on_delete=models.CASCADE,related_name="toEmployeeId") 
