@@ -58,6 +58,7 @@ def workdetails(request,wid):
         workForm=workStatusForm(request.POST, instance=workdetails)
         if workForm.is_valid():
             workForm.save()
+            messages.success(request,"Updated Successfully")
             return redirect("workdetails",wid=wid)
     else:
         workForm=workStatusForm(instance=workdetails)

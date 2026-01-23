@@ -8,6 +8,13 @@
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="django-message p-3 mb-4 rounded-lg bg-green-100 text-green-800">
+                             {{ message }}
+                        </div>
+                    {% endfor %}
+                    {% endif %}
                 <table class="min-w-full">
                 <thead class="bg-white border-b">   
                     <tr>
@@ -78,7 +85,12 @@
                     </form>
                 </td>
                 </tr>
-
+                <script>
+                    setTimeout(()=>{
+                        const alerts=document.querySelectorAll(".django-message");
+                        alerts.forEach(a => a.style.display = "none");
+                    },2500);
+                </script>
                 </tbody>
                 </table>
             </div>
