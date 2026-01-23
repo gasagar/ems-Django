@@ -9,7 +9,11 @@ designations_opt = (
     ('Intern','Intern'),
     ('QA Tester','QA Tester')
 )
-
+STATUS_CHOICES = [
+        ("Pending", "Pending"),
+        ("In-progress", "In-progress"),
+        ("Completed", "Completed"),
+    ]
 months = (
     ('January','January'),
     ('February','February'),
@@ -71,6 +75,7 @@ class workAssignments(models.Model):
     work = models.TextField()
     assignDate = models.DateTimeField()
     dueDate = models.DateTimeField()
+    workStatus= models.CharField(max_length=20,default="Pending", choices=STATUS_CHOICES)
     taskerId = models.ForeignKey(Employee,on_delete=models.CASCADE,related_name="taskerId") 
 
 class Requests(models.Model):
@@ -78,5 +83,5 @@ class Requests(models.Model):
     requesterId = models.ForeignKey(Employee,on_delete=models.CASCADE,related_name="requesterId")
     requestMessage = models.TextField()
     requestDate = models.DateTimeField()
-    requestStatus= models.TextField(default="Pending")
+    requestStatus= models.CharField(max_length=20,default="Pending", choices=STATUS_CHOICES)
     destinationEmployeeId = models.ForeignKey(Employee,on_delete=models.CASCADE,related_name="toEmployeeId") 

@@ -17,8 +17,14 @@ class workform(forms.ModelForm):
             "assignDate",
             "dueDate",
             "taskerId",
+            "workStatus",
 
         ]
+
+class workStatusForm(forms.ModelForm):
+    class Meta:
+        model=workAssignments
+        fields=["workStatus"]
         
 class makeRequestForm(forms.ModelForm):
     class Meta:

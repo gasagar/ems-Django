@@ -53,8 +53,16 @@ def mywork(request):
 
 @login_required(login_url='/')
 def workdetails(request,wid):
-    workdetails = workAssignments.objects.get(id=wid);
-    return render(request,"employee/workdetails.html",{"workdetails":workdetails})
+    workdetails = workAssignments.objects.get(id=wid)
+    if request.method=="POST":
+        workForm=workStatusForm(request.POST, instance=workdetails)
+        if workForm.is_valid():
+            workForm.save()
+            return redirect("workdetails",wid=wid)
+    else:
+        workForm=workStatusForm(instance=workdetails)
+            
+    return render(request,"employee/workdetails.html",{"workdetails":workdetails,"workForm":workForm})
 
 @login_required(login_url='/')
 def makeRequest(request):

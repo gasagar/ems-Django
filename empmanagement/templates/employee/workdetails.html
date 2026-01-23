@@ -9,7 +9,7 @@
             <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden">
                 <table class="min-w-full">
-                <thead class="bg-white border-b">
+                <thead class="bg-white border-b">   
                     <tr>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                         <div class="text" style="font-size: 18px; padding:5px 0px; color:black;">Notice Info</div>
@@ -61,6 +61,24 @@
                     </td>
                     </tr>
                     
+                    
+                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Status
+                </td>
+
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <form method="POST" class="flex items-center gap-4">
+                    {% csrf_token %}
+                    {{ workForm.workStatus }}
+                    <button type="submit"
+                        class="px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition">
+                        Save
+                    </button>
+                    </form>
+                </td>
+                </tr>
+
                 </tbody>
                 </table>
             </div>
