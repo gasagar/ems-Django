@@ -49,6 +49,18 @@ def assignWork(request):
 @login_required(login_url='/')
 def mywork(request):
     work = workAssignments.objects.filter(taskerId=request.user.username)
+    status = request.GET.get("status")
+    search= request.GET.get("search")
+    sort=request.GET.get("sort")
+    if status:
+        work=work.filter(workStatus=status)
+    if search:
+        work=work.filter(work__icontains=search)
+    if sort=="due_asc":
+        work=work.order_by("dueDate")
+    elif sort=="due_desc":
+        work=work.order_by("-dueDate")
+    
     return render(request,"employee/mywork.html",{"work":work})
 
 @login_required(login_url='/')

@@ -15,6 +15,38 @@
             Works
          </h3>
       </div>
+      <form method="GET" class="flex flex-wrap gap-3 mb-4">
+      <input
+         type="text"
+         name="search"
+         placeholder="Search work..."
+         value="{{ request.GET.search }}"
+         class="border px-3 py-2 rounded-lg text-sm"
+      />
+
+      <select name="status" class="border px-3 py-2 rounded-lg text-sm">
+         <option value="">All Status</option>
+         <option value="Pending" {% if request.GET.status == "Pending" %}selected{% endif %}>Pending</option>
+         <option value="In-progress" {% if request.GET.status == "In-progress" %}selected{% endif %}>In-progress</option>
+         <option value="Completed" {% if request.GET.status == "Completed" %}selected{% endif %}>Completed</option>
+      </select>
+
+      <select name="sort" class="border px-3 py-2 rounded-lg text-sm">
+         <option value="">Sort by Due</option>
+         <option value="due_asc" {% if request.GET.sort == "due_asc" %}selected{% endif %}>
+            Oldest first
+         </option>
+         <option value="due_desc" {% if request.GET.sort == "due_desc" %}selected{% endif %}>
+            Newest first
+         </option>
+      </select>
+
+      <button
+         type="submit"
+         class="px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm hover:bg-indigo-700 transition">
+         Apply
+      </button>
+      </form>
       <div class="flow-root">
       <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
       {% for info in work %}
