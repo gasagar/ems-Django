@@ -32,7 +32,7 @@ def assignWork(request):
         "assignerId" : request.user.username,
     }
     flag = ""
-    form = workform(request.POST or None, initial=initialData)
+    form = workform(request.POST or None, initial=initialData,current_user=request.user)
     if form.is_valid():
         currentTaskerId = request.POST["taskerId"]
         currentUserId = request.user.username
@@ -40,7 +40,9 @@ def assignWork(request):
             flag="Invalid ID Selected..."
         else:
             flag = "Work Assigned Successfully!!"
-            form.save()
+            obj = form.save(commit=False)  
+            obj.workStatus = "Pending"      
+            obj.save()     
 
     context['form']=form
     context['flag'] = flag

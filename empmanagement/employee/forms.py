@@ -3,6 +3,17 @@ from django import forms
 from .models import workAssignments, Requests
 
 class workform(forms.ModelForm):
+    
+    def __init__(self,*args,**kwargs):
+            current_user=kwargs.pop("current_user",None)
+            super().__init__(*args, **kwargs)
+
+            if current_user:
+                self.fields["taskerId"].queryset=(
+                    self.fields["taskerId"].queryset.exclude(
+                        eID=current_user.username
+                    )
+                )
     class Meta:
         model=workAssignments
         widgets={
@@ -17,7 +28,6 @@ class workform(forms.ModelForm):
             "assignDate",
             "dueDate",
             "taskerId",
-            "workStatus",
 
         ]
 
