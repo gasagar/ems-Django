@@ -19,7 +19,7 @@ def login_user(request):
             messages.error(request,"Invalid Credentials")
             return redirect("/")
 
-    return render(request,"employee/Login.html")
+    return render(request,"employee/login.html")
 
 
 def logout_user(request):
